@@ -8,6 +8,10 @@ public class AddressBookMain {
 
     private static Map<String, AddressBook> map
             = new HashMap<String, AddressBook>();
+    private static Map<String, List<String>> cityMap
+            = new HashMap<String, List<String>>();
+    private static Map<String, List<String>> stateMap
+            = new HashMap<String, List<String>>();
 
     private static AddressBook addressBook;
 
@@ -16,9 +20,9 @@ public class AddressBookMain {
         int n = 0;
         Scanner scan = new Scanner(System.in);
 
-        while (n != 5) {
+        while (n != 8) {
             System.out.println("1.Create new Address book \n2.Remove Address book"
-                    + "\n3.Print all Address book \n4. Select Address book \n5. Exit");
+                    + "\n3.Print all Address book \n4. Select Address book \n5. Search \n6. Display by City \n7. Display by State \n8.Count \n9. Exit");
             n = scan.nextInt();
             switch (n) {
                 case 1:
@@ -34,6 +38,18 @@ public class AddressBookMain {
                     selectAddressBook();
                     break;
                 case 5:
+                    search();
+                    break;
+                case 6:
+                    displayByCity();
+                    break;
+                case 7:
+                    displayByState();
+                    break;
+                case 8:
+                    count();
+                    break;
+                case 9:
                     System.out.println("Exiting....");
                     break;
                 default:
@@ -41,6 +57,50 @@ public class AddressBookMain {
             }
         }
 
+    }
+
+    private static void count() {
+
+    }
+
+    private static void displayByState() {
+        addressBookList.stream().forEach((adBook) -> {
+            adBook.contactList.stream().forEach(contact -> {
+                if (stateMap.containsKey(contact.state))
+                    stateMap.get(contact.state).add(contact.firstName+" "+contact.lastName);
+                else {
+                    List<String> state = new ArrayList<>();
+                    state.add(contact.firstName + " " + contact.lastName);
+                    stateMap.put(contact.state, state);
+                }
+            });
+        });
+        System.out.println(stateMap);
+
+    }
+
+    private static void displayByCity() {
+        addressBookList.stream().forEach((adBook) -> {
+            adBook.contactList.stream().forEach(contact -> {
+                if (cityMap.containsKey(contact.city))
+                    cityMap.get(contact.city).add(contact.firstName+" "+contact.lastName);
+                else {
+                    List<String> city = new ArrayList<>();
+                    city.add(contact.firstName + " " + contact.lastName);
+                    cityMap.put(contact.city, city);
+                }
+            });
+        });
+        System.out.println(stateMap);
+    }
+
+    private static void search() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the Name of State or City");
+        String searchData = scan.nextLine();
+        for (AddressBook addressBook : addressBookList) {
+            addressBook.contactList.stream().filter(contacts -> contacts.state.equals(searchData)||contacts.city.equals(searchData)).forEach(contacts -> System.out.println(contacts));
+        }
     }
 
     private static void selectAddressBook() {
