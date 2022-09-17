@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf88d611-bca4-453c-8a22-7a818cf64ac3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Bridgelabz/AddressBook/Contacts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bridgelabz/AddressBook/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bridgelabz/AddressBook/AddressBook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +38,11 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.Bridgelabz.AddressBook" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AddressBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Bridgelabz.AddressBook.AddressBook" />
